@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin,btnSignup;
     String userNameText,userPasswordText;
     FirebaseAuth userAuth;
-
+    //check
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
