@@ -1,11 +1,14 @@
 package com.example.royi.racebet;
 
+import java.util.List;
+
 public class Group {
     private String name;
     private String durtion;
     private String max_users;
     private String adminID;
     private String betPrice;
+    private List<User> groupUser;
 
     public String getName() {
         return name;
@@ -46,5 +49,6 @@ public class Group {
     public void setBetPrice(String betPrice) {
         this.betPrice = betPrice;
     }
+
 
 }

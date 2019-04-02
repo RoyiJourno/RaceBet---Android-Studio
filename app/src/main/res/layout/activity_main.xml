@@ -9,75 +9,83 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="10"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="10">
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"/>
+            android:layout_weight="2" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="6"
-            android:weightSum="10"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="10">
+
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"/>
+                android:layout_weight="2" />
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="6"
                 android:orientation="vertical"
                 android:weightSum="10">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
                     android:text="RaceBet"
                     android:textAlignment="center"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp" />
+
                 <EditText
-                    android:layout_width="match_parent"
                     android:id="@+id/userNameInput"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:hint="Username"/>
+                    android:hint="Username" />
+
                 <EditText
                     android:id="@+id/userPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:hint="Password"/>
+                    android:hint="Password" />
 
                 <Button
+                    android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="Login"
-                    android:id="@+id/btnLogin"/>
+                    android:text="Login" />
+
                 <Button
+                    android:id="@+id/btnSignup"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="SignUp"
-                    android:id="@+id/btnSignup"/>
+                    android:text="SignUp" />
 
             </LinearLayout>
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"/>
+                android:layout_weight="2" />
 
 
         </LinearLayout>
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"/>
+            android:layout_weight="2" />
 
 
     </LinearLayout>
