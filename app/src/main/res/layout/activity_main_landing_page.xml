@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainLandingPage">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hiiiiii"
+        android:id="@+id/userNameWelcome"
+        android:textSize="30dp"/>
+
 </android.support.constraint.ConstraintLayout>
