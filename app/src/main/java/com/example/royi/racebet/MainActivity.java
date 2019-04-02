@@ -39,9 +39,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin,btnSignup;
     String userNameText,userPasswordText;
     FirebaseAuth userAuth;
+    //check
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FitnessOptions fitnessOptions =

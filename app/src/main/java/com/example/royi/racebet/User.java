@@ -3,18 +3,9 @@ import java.util.List;
 
 public class User {
     private String name;
-    private String email;
     private String phone;
     private String photoPath;
     private List<String> groupList;
-
-    public User(String name,String email,String phone,String photoPath,List<String> groupList){
-        this.name=name;
-        this.email=email;
-        this.phone=phone;
-        this.photoPath=photoPath;
-        this.groupList=groupList;
-    }
 
     public String getName() {
         return name;
