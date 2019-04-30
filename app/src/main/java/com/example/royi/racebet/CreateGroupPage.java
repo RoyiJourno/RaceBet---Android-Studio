@@ -29,7 +29,7 @@ public class CreateGroupPage extends AppCompatActivity {
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {//יוצר קבוצה ומכניס לדאטה בייס
             @Override
             public void onClick(View v) {
-
+                
 
                 Intent intent=new Intent(CreateGroupPage.this,MainActivity.class);
                 startActivity(intent);
