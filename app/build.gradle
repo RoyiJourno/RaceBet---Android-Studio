@@ -31,9 +31,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-auth:16.1.0'
     //Using: Google fitness API
+<<<<<<< HEAD
     implementation 'com.google.android.gms:play-services-fitness:16.0.1'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.intellij:annotations:+@jar'
+=======
+    compile 'com.google.android.gms:play-services-fitness:16.0.1'
+    compile 'com.google.android.gms:play-services-auth:16.0.1'
+    compile 'com.intellij:annotations:+@jar'
+>>>>>>> f6c7985175538606e07ca8d3db59608460b8a7d2
 }
 
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
