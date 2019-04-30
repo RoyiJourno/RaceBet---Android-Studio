@@ -130,12 +130,12 @@ public class MainActivity extends AppCompatActivity {
         if(isFinishing())
             return;
         Boolean Registered;
-        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         Registered = sharedPref.getBoolean("Registered",false);
 
         if (!Registered)
         {
-            //startActivity(new Intent(this,LoginPage.class));
+            //
         }else {
             startActivity(new Intent(this,MainLandingPage.class));
             finish();

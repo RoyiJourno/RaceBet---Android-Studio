@@ -1,7 +1,8 @@
 package com.example.royi.racebet;
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
     private String name;
     private String phone;
     private String photoPath;
@@ -12,6 +13,9 @@ public class User {
         this.phone = phone;
         this.photoPath = PhotoPath;
         this.groupList = groupList;
+    }
+    public User(){
+
     }
 
     public String getName() {
