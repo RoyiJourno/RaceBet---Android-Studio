@@ -2,11 +2,11 @@ package com.example.royi.racebet;
 import java.util.List;
 
 public class UserInGroup {
-    private string phone; //user id
-    private string userGroupName; // group id
-    private string stepNumber;
-    private string startDate;
-    private string endDate;
+    private String phone; //user id
+    private String userGroupName; // group id
+    private String stepNumber;
+    private String startDate;
+    private String endDate;
 
 
     public String getPhone() {

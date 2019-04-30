@@ -42,7 +42,7 @@ public class CreateGroupPage extends AppCompatActivity {
         btnAddFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtUserPhoneNumber.length() != 10) // check if valid phone number
+                if(txtPhoneNumber.length() != 10) // check if valid phone number
                 {
                     Toast.makeText(CreateGroupPage.this,"NOT VALID phone number",Toast.LENGTH_LONG).show();
                 }
