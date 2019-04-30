@@ -10,6 +10,19 @@ public class Group {
     private String betPrice;
     private List<User> groupUser;
 
+    public Group(){
+
+    }
+
+    public Group(String name,String durtion,String max_users,String adminID,List<User> groupUser){
+        this.name=name;
+        this.durtion=durtion;
+        this.max_users=max_users;
+        this.adminID=adminID;
+        this.groupUser=groupUser;
+
+    }
+
     public String getName() {
         return name;
     }

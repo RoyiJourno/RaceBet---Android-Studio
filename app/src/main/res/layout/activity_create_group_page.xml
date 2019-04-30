@@ -10,56 +10,65 @@
         android:id="@+id/btnCreateGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
         android:text="create"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="634dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txtGroupName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="177dp"
         android:ems="10"
         android:hint="Group Name"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="177dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtBetAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         android:ems="10"
         android:hint="Bet Amount"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintStart_toStartOf="@+id/txtGroupName"
+        app:layout_constraintTop_toBottomOf="@+id/txtGroupName" />
 
     <EditText
         android:id="@+id/txtDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Duration"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="342dp" />
+        app:layout_constraintStart_toStartOf="@+id/txtBetAmount"
+        app:layout_constraintTop_toBottomOf="@+id/txtBetAmount" />
 
     <Button
         android:id="@+id/btnAddFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="19dp"
         android:text="add friend"
-        tools:layout_editor_absoluteX="290dp"
-        tools:layout_editor_absoluteY="439dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDuration" />
 
     <EditText
         android:id="@+id/txtPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="439dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnAddFriend"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddFriend" />
 
 </android.support.constraint.ConstraintLayout>
