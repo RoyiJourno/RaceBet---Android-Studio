@@ -9,10 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-<<<<<<< HEAD
         <activity android:name=".CreateGroupPage" />
-=======
->>>>>>> f6c7985175538606e07ca8d3db59608460b8a7d2
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainLandingPage" />
-<<<<<<< HEAD
         <activity android:name=".SignupPage" />
-=======
-        <activity android:name=".SignupPage"></activity>
->>>>>>> f6c7985175538606e07ca8d3db59608460b8a7d2
     </application>
 
 </manifest>
