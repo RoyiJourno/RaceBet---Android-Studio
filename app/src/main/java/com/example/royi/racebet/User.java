@@ -7,6 +7,13 @@ public class User {
     private String photoPath;
     private List<String> groupList;
 
+    public User(String name,String phone,String PhotoPath,List<String> groupList){
+        this.name = name;
+        this.phone = phone;
+        this.photoPath = PhotoPath;
+        this.groupList = groupList;
+    }
+
     public String getName() {
         return name;
     }
