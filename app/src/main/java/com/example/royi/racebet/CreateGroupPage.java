@@ -40,7 +40,7 @@ public class CreateGroupPage extends AppCompatActivity {
             public void onClick(View v) {
                 Group group = new Group(dRef.push().getKey(),txtGroupName.getText().toString(),txtDuration.getText().toString(),null,mAuth.getUid(),null);
                 dRef.child(group.getGruopID()).setValue(group);
-                Intent intent=new Intent(CreateGroupPage.this,MainActivity.class);
+                Intent intent=new Intent(CreateGroupPage.this,PaypalPage.class);
                 startActivity(intent);
             }
         });
