@@ -8,16 +8,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class CreateGroupPage extends AppCompatActivity {
 
     private Button btnCreateGroup, btnAddFriend;
     private EditText txtGroupName,txtBet,txtDuration,txtPhoneNumber;
+    FirebaseAuth mAuth;
+    DatabaseReference dRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group_page);
+
+        mAuth = FirebaseAuth.getInstance();
+        dRef = FirebaseDatabase.getInstance().getReference().child("Groups");
 
         btnCreateGroup = findViewById(R.id.btnCreateGroup);
         btnAddFriend=findViewById(R.id.btnAddFriend);
@@ -29,9 +38,9 @@ public class CreateGroupPage extends AppCompatActivity {
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {//יוצר קבוצה ומכניס לדאטה בייס
             @Override
             public void onClick(View v) {
-                
-
-                Intent intent=new Intent(CreateGroupPage.this,MainActivity.class);
+                Group group = new Group(dRef.push().getKey(),txtGroupName.getText().toString(),txtDuration.getText().toString(),null,mAuth.getUid(),null);
+                dRef.child(group.getGruopID()).setValue(group);
+                Intent intent=new Intent(CreateGroupPage.this,PaypalPage.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +55,7 @@ public class CreateGroupPage extends AppCompatActivity {
                 {
                     Toast.makeText(CreateGroupPage.this,"NOT VALID phone number",Toast.LENGTH_LONG).show();
                 }
-                // ** neet to:insert data to firebase + declares successful
+                // ** neet to:insert data to sql + declares successful
 
                 Toast.makeText(CreateGroupPage.this,"Member joined!:)",Toast.LENGTH_LONG).show();
 

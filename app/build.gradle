@@ -34,6 +34,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-fitness:16.0.1'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.intellij:annotations:+@jar'
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
+
 }
 
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

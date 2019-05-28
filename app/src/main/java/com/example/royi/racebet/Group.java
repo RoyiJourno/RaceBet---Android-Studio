@@ -3,6 +3,15 @@ package com.example.royi.racebet;
 import java.util.List;
 
 public class Group {
+    public String getGruopID() {
+        return gruopID;
+    }
+
+    public void setGruopID(String gruopID) {
+        this.gruopID = gruopID;
+    }
+
+    private String gruopID;
     private String name;
     private String durtion;
     private String max_users;
@@ -14,7 +23,8 @@ public class Group {
 
     }
 
-    public Group(String name,String durtion,String max_users,String adminID,List<User> groupUser){
+    public Group(String gruopID,String name,String durtion,String max_users,String adminID,List<User> groupUser){
+        this.gruopID=gruopID;
         this.name=name;
         this.durtion=durtion;
         this.max_users=max_users;
