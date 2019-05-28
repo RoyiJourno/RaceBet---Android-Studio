@@ -67,7 +67,7 @@ public class PaypalPage extends AppCompatActivity {
     private void processPayment(){
         amount=edtAmount.getText().toString();
         PayPalPayment payPalPayment=new PayPalPayment(new BigDecimal(String.valueOf(amount)),"USD",
-                "The Game begin",PayPalPayment.PAYMENT_INTENT_SALE);
+                "The Game started",PayPalPayment.PAYMENT_INTENT_SALE);
         Intent intent=new Intent(this, PaymentActivity.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,config);
         intent.putExtra(PaymentActivity.EXTRA_PAYMENT,payPalPayment);
