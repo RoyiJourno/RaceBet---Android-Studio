@@ -31,7 +31,7 @@ public class PaypalPage extends AppCompatActivity {
 
 
     Button btnPayNow;
-    TextView edtAmount;
+    EditText edtAmount;
 
     String amount="";
 
@@ -53,7 +53,7 @@ public class PaypalPage extends AppCompatActivity {
         startService(intent);
 
         btnPayNow=(Button)findViewById(R.id.btnPayNow);
-        edtAmount=(TextView) findViewById(R.id.edtAmount);
+        edtAmount=(EditText) findViewById(R.id.edtAmount);
 
         btnPayNow.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -55,7 +55,7 @@ public class CreateGroupPage extends AppCompatActivity {
                 {
                     Toast.makeText(CreateGroupPage.this,"NOT VALID phone number",Toast.LENGTH_LONG).show();
                 }
-                // ** neet to:insert data to firebase + declares successful
+                // ** neet to:insert data to sql + declares successful
 
                 Toast.makeText(CreateGroupPage.this,"Member joined!:)",Toast.LENGTH_LONG).show();
 

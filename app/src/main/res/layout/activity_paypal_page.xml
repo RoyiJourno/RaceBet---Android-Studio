@@ -7,7 +7,7 @@
     tools:context=".PaypalPage">
 
 
-    <TextView
+    <EditText
         android:id="@+id/edtAmount"
         android:layout_width="187dp"
         android:layout_height="0dp"
