@@ -24,7 +24,7 @@ public class PaymentDetails extends AppCompatActivity {
         //get intent
         Intent intent=getIntent();
         try {
-            JSONObject jsonObject=new JSONObject(intent.getStringExtra("PaymentDEtails"));
+            JSONObject jsonObject=new JSONObject(intent.getStringExtra("PaymentDetails"));
             showDetails(jsonObject.getJSONObject("response"),intent.getStringExtra("PaymentAmount"));
         }catch (JSONException e){
             e.printStackTrace();

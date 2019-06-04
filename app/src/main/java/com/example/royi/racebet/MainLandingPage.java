@@ -59,9 +59,10 @@ public class MainLandingPage extends AppCompatActivity {
             createGroup.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainLandingPage.this, CreateGroupPage.class);
+                    /*Intent intent = new Intent(MainLandingPage.this, CreateGroupPage.class);
                     intent.putExtra("User", user);
-                    startActivity(intent);
+                    startActivity(intent);*/
+                    startActivity(new Intent(getApplicationContext(),GroupView.class));
                 }
             });
 

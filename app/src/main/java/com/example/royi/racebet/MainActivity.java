@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             subscribe();
         }
 
-        jump(); //if the user already sign-in.
+        jumpIfRegisterd(); //if the user already sign-in.
 
         userName = findViewById(R.id.userNameInput);
         userPassword = findViewById(R.id.userPasswordInput);
@@ -126,16 +126,16 @@ public class MainActivity extends AppCompatActivity {
     * method to check if user is logged in,
     * if yes jump to MainLendingPage.
     * */
-    private void jump() {
+    private void jumpIfRegisterd() {
         if(isFinishing())
             return;
-        Boolean Registered;
+        Boolean registered;
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        Registered = sharedPref.getBoolean("Registered",false);
+        registered = sharedPref.getBoolean("Registered",false);
 
-        if (!Registered)
+        if (!registered)
         {
-            //
+            //Do Nothing!
         }else {
             startActivity(new Intent(this,MainLandingPage.class));
             finish();
