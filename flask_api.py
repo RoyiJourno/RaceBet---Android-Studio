@@ -4,6 +4,7 @@ from flask import request, jsonify
 from sqlalchemy import create_engine, MetaData, Table, Column, ForeignKey, and_, text
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm.exc import NoResultFound
 import json
 
 
@@ -27,10 +28,11 @@ def auth_user(jwt):
     if h.request('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + jwt, method="GET",
                              headers={'accept': 'application/json'})[0] == 200:
         return jwt.decode(jwt)
+    else: return []
 
 
 
-engine = create_engine("somthing.something")
+engine = create_engine("mysql+mysqlconnector://raceback:racebet@127.0.0.1/raceback")
 connection = engine.connect()
 
 Session = sessionmaker(bind=engine)
@@ -52,6 +54,12 @@ app = flask.Flask(__name__)
 @app.route('/group', methods=['POST', 'PUT', 'GET'])
 def post_group():
     try:
+        try:
+            auth = auth_user(request.form['token'])
+            if auth.__len__() == 0 or Users.query.filter(Users.mail == json.loads(auth).email) != request.form['id']:
+                return 'No permissions', 401
+        except NoResultFound:
+            return 'No permissions', 401
         if request.method == 'POST':
             group_to_insert = Groups()
             group_to_insert.gid = request.form['id']
@@ -91,6 +99,12 @@ def post_group():
 @app.route('/user', methods=['POST', 'PUT', 'GET'])
 def user():
     try:
+        try:
+            auth = auth_user(request.form['token'])
+            if auth.__len__() == 0 or Users.query.filter(Users.mail == json.loads(auth).email) != request.form['id']:
+                return 'No permissions', 401
+        except NoResultFound:
+            return 'No permissions', 401
         if request.method == 'POST':
             user_to_insert = Users()
             user_to_insert.id = request.form['id']
@@ -109,10 +123,10 @@ def user():
                 id = request.form['id']
                 if 'name' in request.form:
                     upname = request.form['name']
-                    db_session.query(Users).filter(Users.gid == id).update({'name': upname})
+                    db_session.query(Users).filter(Users.id == id).update({'name': upname})
                 if 'ppath' in request.form:
                     ppath = request.form['ppath']
-                    db_session.query(Users).filter(Users.gid == id).update({'ppath': ppath})
+                    db_session.query(Users).filter(Users.id == id).update({'ppath': ppath})
                 db_session.commit()
                 db_session.remove()
                 return 200
@@ -120,7 +134,7 @@ def user():
         else:
             db_session = scoped_session(sessionmaker(bind=engine))
             id = request.form['id']
-            query = db_session.query(Users).filter(Users.gid == id).first()
+            query = db_session.query(Users).filter(Users.id == id).first()
             res = user_serializer(query)
             return json.dumps(res), 200
     except KeyError:
@@ -132,6 +146,12 @@ def user():
 @app.route('/groupofusers', methods=['GET','POST'])
 def usertogroup():
     try:
+        try:
+            auth = auth_user(request.form['token'])
+            if auth.__len__() == 0 or Users.query.filter(Users.mail == json.loads(auth).email) != request.form['id']:
+                return 'No permissions', 401
+        except NoResultFound:
+            return 'No permissions', 401
         if request.method == 'POST':
             usergroup_add = Users_Groups()
             db_session = scoped_session(sessionmaker(bind=engine))
@@ -145,7 +165,7 @@ def usertogroup():
             return 200
         else:
             id = request.form['id']
-            query = Groups.query.join(Users).join(Groups).filter(Users.gid == id).all()
+            query = Groups.query.join(Users).join(Groups).filter(Users.id == id).all()
             list_to_return = []
             for item in query:
                 list_to_return.append(group_serializer(item))
@@ -157,11 +177,35 @@ def usertogroup():
 @app.route('/usersingroup', methods=['GET'])
 def grouptousers():
     try:
-            gid = request.form['gid']
-            query = Users.query.join(Users).join(Groups).filter(Users.gid == id).all()
+        try:
+            auth = auth_user(request.form['token'])
+            if auth.__len__() == 0 or Users.query.filter(Users.mail == json.loads(auth).email) != request.form['id']:
+                return 'No permissions', 401
+        except NoResultFound:
+            return 'No permissions', 401
+        gid = request.form['gid']
+        query = Users.query.join(Users).join(Groups).filter(Users.gid == id).all()
+        list_to_return = []
+        for item in query:
+            list_to_return.append(user_serializer(item))
+        return json.dumps(list_to_return), 200
+    except KeyError:
+        return "Bad request", 400
+
+@app.route('/payments', methods=['GET'])
+def payments():
+    try:
+        try:
+            auth = auth_user(request.form['token'])
+            if auth.__len__() == 0 or Users.query.filter(Users.mail == json.loads(auth).email) != request.form['id']:
+                return 'No permissions', 401
+        except NoResultFound:
+            return 'No permissions', 401
+            id = request.form['id']
+            query = Payments.query.filter(Users.id == id).all()
             list_to_return = []
             for item in query:
-                list_to_return.append(user_serializer(item))
+                list_to_return.append(payment_serializer(item))
             return json.dumps(list_to_return), 200
     except KeyError:
         return "Bad request", 400
