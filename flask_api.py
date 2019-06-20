@@ -30,7 +30,7 @@ def auth_user(jwt):
 
 
 
-engine = create_engine("mysql+mysqlconnector://raceback:racebet@127.0.0.1/raceback")
+engine = create_engine("somthing.something")
 connection = engine.connect()
 
 Session = sessionmaker(bind=engine)
