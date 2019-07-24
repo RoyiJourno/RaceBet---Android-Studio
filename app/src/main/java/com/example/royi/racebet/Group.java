@@ -1,8 +1,15 @@
 package com.example.royi.racebet;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.ArrayMap;
 
-public class Group {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Group implements Parcelable {
     public String getGruopID() {
         return gruopID;
     }
@@ -17,14 +24,24 @@ public class Group {
     private String max_users;
     private String adminID;
     private String betPrice;
-    private List<User> groupUser;
+
+    public ArrayList<UserInGroup> getGroupUser() {
+        return groupUser;
+    }
+
+    public void setGroupUser(ArrayList<UserInGroup> groupUser) {
+        this.groupUser = groupUser;
+    }
+
+    private ArrayList<UserInGroup> groupUser;
 
     public Group(){
 
     }
 
-    public Group(String gruopID,String name,String durtion,String max_users,String adminID,List<User> groupUser){
+    public Group(String gruopID,String name,String durtion,String max_users,String betPrice,String adminID,ArrayList<UserInGroup> groupUser){
         this.gruopID=gruopID;
+        this.betPrice=betPrice;
         this.name=name;
         this.durtion=durtion;
         this.max_users=max_users;
@@ -74,4 +91,42 @@ public class Group {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    // write your object's data to the passed-in Parcel
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(gruopID);
+        out.writeString(name);
+        out.writeString(durtion);
+        out.writeString(max_users);
+        out.writeString(betPrice);
+        out.writeString(adminID);
+        //out.writeArray(groupUser);
+    }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Group> CREATOR = new Parcelable.Creator<Group>() {
+        public Group createFromParcel(Parcel in) {
+            return new Group(in);
+        }
+
+        public Group[] newArray(int size) {
+            return new Group[size];
+        }
+    };
+
+    // example constructor that takes a Parcel and gives you an object populated with it's values
+    private Group(Parcel in) {
+        gruopID = in.readString();
+        name = in.readString();
+        durtion = in.readString();
+        max_users = in.readString();
+        betPrice = in.readString();
+        adminID = in.readString();
+        //in.readList(HashMap.class.getClassLoader());
+    }
 }

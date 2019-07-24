@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "917718442327-qh1rtsvlaia99aht65p12rom4a1mp90b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.royi.racebet",
+            "certificate_hash": "c04823e9304898af9a47f749fbf6be797a3b4479"
+          }
+        },
+        {
           "client_id": "917718442327-7rkecjbim8q06ev2cqmkmbluc4fvmod8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "917718442327-lg7dsk0b6lnpr2cl5ugkckmko68nroan.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

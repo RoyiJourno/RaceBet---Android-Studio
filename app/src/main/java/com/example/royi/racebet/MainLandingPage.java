@@ -23,8 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainLandingPage extends AppCompatActivity {
     FirebaseAuth mAuth;
-    DatabaseReference dRef;
-
     User user;
 
     TextView userName;
@@ -37,32 +35,30 @@ public class MainLandingPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_landing_page);
 
 
-        mAuth = FirebaseAuth.getInstance();
-        dRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                user = dataSnapshot.child(mAuth.getUid()).getValue(User.class);
-                updateUI();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        };
-        dRef.addListenerForSingleValueEvent(valueEventListener);
+         mAuth = FirebaseAuth.getInstance();
          userName = findViewById(R.id.userNameMainPage);
          createGroup = findViewById(R.id.createGroup);
          viewTable = findViewById(R.id.viewTable);
+         user = (User)getIntent().getParcelableExtra("user");
+         userName.setText(user.getName());
 
             createGroup.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Intent intent = new Intent(MainLandingPage.this, CreateGroupPage.class);
-                    intent.putExtra("User", user);
-                    startActivity(intent);*/
-                    startActivity(new Intent(getApplicationContext(),GroupView.class));
+                    Intent intent = new Intent(MainLandingPage.this, CreateGroupPage.class);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
+                    //startActivity(new Intent(getApplicationContext(),GroupView.class));
+                }
+            });
+
+            viewTable.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainLandingPage.this, GroupOfUserView.class);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
+                    //startActivity(new Intent(getApplicationContext(),GroupView.class));
                 }
             });
 
@@ -83,12 +79,6 @@ public class MainLandingPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainLandingPage.this);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.remove("Password");
-                editor.remove("Username");
-                editor.remove("Registered");
-
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 finish();
 

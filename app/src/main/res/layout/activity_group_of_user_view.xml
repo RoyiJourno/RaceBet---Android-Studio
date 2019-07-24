@@ -18,38 +18,31 @@
             android:layout_weight="3"
             android:weightSum="3"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/betPriceText"
+            <ImageView
+                android:id="@+id/userPhoto"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/groupNameText"
+                android:id="@+id/userName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/durationGroupText"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"/>
         </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"></ListView>
-
-        <Button
+        <ListView
+            android:id="@+id/listViewInGroup"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:id="@+id/btnAddUsers"
-            android:text="Add Users"
-            />
+            android:layout_weight="17"></ListView>
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
