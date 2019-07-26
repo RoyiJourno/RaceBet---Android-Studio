@@ -26,7 +26,8 @@ public class PaypalPage extends AppCompatActivity {
     public static int PalPalResultCode = 7171;
 
     private static PayPalConfiguration config = new PayPalConfiguration()
-            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)//use sandbox on test
+            //use sandbox on test
+            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
             .clientId(Config.PAYPAL_KEY);
 
 
@@ -90,9 +91,6 @@ public class PaypalPage extends AppCompatActivity {
                                .putExtra("PaymentDetails",PaymentDetails)
                                .putExtra("PaymentAmount",amount)
                        );
-
-
-
                    } catch (JSONException e){
                        e.printStackTrace();
                    }
